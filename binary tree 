@@ -1,13 +1,16 @@
-class Solution:
-    def inorderTraversal(self, root):
-        result = []
-
-        def inorder(node):
-            if not node:
-                return
-            inorder(node.left)
-            result.append(node.val)
-            inorder(node.right)
-
-        inorder(root)
-        return result
+class Solution {
+    private List<Integer> res = new ArrayList<>();
+    public List<Integer> inorderTraversal(TreeNode root) {
+        traverse(root);
+        return res;
+    }
+    
+    private void traverse(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        traverse(root.left);
+        res.add(root.val);
+        traverse(root.right);
+    }
+}
