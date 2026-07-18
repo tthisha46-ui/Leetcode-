@@ -1,0 +1,19 @@
+class Solution {
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> groups = new HashMap<>();
+
+        for (String str : strs) {
+            // Count the frequency of each letter
+            char[] count = new char[26];
+
+            for (int i = 0; i < str.length(); i++) {
+                count[str.charAt(i) - 'a']++;
+            }
+
+            // Strings with the same frequencies will have the same key
+            String key = new String(count);
+
+            // Get the existing group
+            List<String> group = groups.get(key);
+
+            // Create a new 
